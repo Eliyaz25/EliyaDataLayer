@@ -26,6 +26,10 @@ namespace ViewModel
             user.Birthday = DateTime.Parse(reader["bDay"].ToString());
             user.Gender = bool.Parse(reader["gender"].ToString());
             user.IsManager = bool.Parse(reader["isManager"].ToString());
+            user.IsOperator = bool.Parse(reader["isOperator"].ToString());
+            user.IsVolunteer = bool.Parse(reader["isVolunteer"].ToString());
+            ActivityDB activityDB = new ActivityDB();
+            user.Activities = activityDB.SelectByUser(user);
             CityDB cityDB = new CityDB();
             int cityID = int.Parse(reader["city"].ToString());
             user.City = cityDB.SelectById(cityID);
@@ -42,11 +46,11 @@ namespace ViewModel
 
         public User SelectById(int id)
         {
-            command.CommandText = "SELECT * FROM tblUser WHERE ID=" + id;
-            UserList list = new UserList(ExecuteCommand());
-            if (list.Count == 0)
-                return null;
-            return list[0];
+            command.CommandText = $"SELECT * FROM TblUsers WHERE (ID = {id})";
+            UserList list = new UserList(base.ExecuteCommand());
+            if (list.Count == 1)
+                return list[0];
+            return null;
         }
     }
 }

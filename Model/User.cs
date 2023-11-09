@@ -17,6 +17,9 @@ namespace Model
         protected bool gender;
         protected City city;
         protected bool isManager;
+        protected bool isOperator;
+        protected bool isVolunteer;
+        protected ActivityList activities;
         public string FirstName { get { return firstName; } set { firstName = value; } }
 
         public string LastName { get { return lastName; } set { lastName = value; } }
@@ -34,6 +37,10 @@ namespace Model
         public City City { get { return city; } set { city = value; } }
 
         public bool IsManager { get { return isManager; } set { isManager = value; } }
+        public bool IsOperator { get { return isOperator; } set { isOperator = value; } }
+        public bool IsVolunteer { get { return isVolunteer; } set { isVolunteer = value; } }
+        public ActivityList Activities { get { return activities; } set { activities = value; } }
+
     }
 
     public class UserList : List<User>
@@ -45,7 +52,7 @@ namespace Model
         public UserList(IEnumerable<User> list)
             : base(list) { }
 
-        //המרה מטיפוס בסיס לרשימת ערים
+        //המרה מטיפוס בסיס לרשימת משתמשים
         public UserList(IEnumerable<BaseEntity> list)
             : base(list.Cast<User>().ToList()) { }
 

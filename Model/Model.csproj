@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activity.cs" />
+    <Compile Include="ActivityType.cs" />
     <Compile Include="BaseEntity.cs" />
     <Compile Include="City.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

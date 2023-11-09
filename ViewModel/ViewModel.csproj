@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivityDB.cs" />
+    <Compile Include="ActivityTypeDB.cs" />
     <Compile Include="BaseDB.cs" />
     <Compile Include="CityDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

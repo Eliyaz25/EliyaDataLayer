@@ -32,7 +32,7 @@ namespace ViewModel
 
         public City SelectById(int id)
         {
-            command.CommandText = "SELECT * FROM tblCity WHERE ID=" + id;
+            command.CommandText = $"SELECT * FROM tblCity WHERE ID={id}";
             CityList list = new CityList(ExecuteCommand());
             if (list.Count == 0)
                 return null;
